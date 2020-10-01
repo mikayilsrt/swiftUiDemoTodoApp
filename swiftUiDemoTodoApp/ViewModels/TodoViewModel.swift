@@ -17,4 +17,14 @@ class TodoViewModel : ObservableObject {
         Todo(title: "delectus aut autem", completed: false)
     ]
     
+    func removeItem(todo: Todo) {
+        DispatchQueue.global().async {
+            for (index, item) in self.todos.enumerated() {
+                if item.id == todo.id {
+                    self.todos.remove(at: index)
+                }
+            }
+        }
+    }
+    
 }

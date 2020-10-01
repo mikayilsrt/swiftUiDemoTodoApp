@@ -11,8 +11,11 @@ struct TodoListView: View {
     
     @ObservedObject var todoViewModel : TodoViewModel = TodoViewModel()
     
+    @State private var newTodoText : String = ""
+    
     var searchBar: some View {
         HStack {
+            TextField("New task", text: self.$newTodoText)
             Spacer()
             Button(action: self.addNewItem, label: {
                 Text("Add New")
@@ -21,15 +24,29 @@ struct TodoListView: View {
     }
     
     func addNewItem() {
-        todoViewModel.todos.append(Todo(title: "New Item", completed: false))
+        if !self.newTodoText.isEmpty {
+            todoViewModel.todos.append(Todo(title: self.newTodoText, completed: false))
+            self.newTodoText = ""
+        }
     }
     
     var body: some View {
         NavigationView {
             VStack {
                 searchBar.padding()
-                List(todoViewModel.todos) { todo in
-                    Text(todo.title)
+                if self.todoViewModel.todos.isEmpty {
+                    Spacer()
+                    Text("Your todo list is empty.")
+                    Spacer()
+                } else {
+                    List(todoViewModel.todos) { todo in
+                        Text(todo.title)
+                        Spacer()
+                        Button(action: { self.todoViewModel.removeItem(todo: todo) }, label: {
+                            Image("trash_outline")
+                        }).padding()
+                    }
+                    .listStyle(GroupedListStyle())
                 }
             }
             .navigationBarTitle("Todo List")
