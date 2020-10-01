@@ -15,6 +15,7 @@
 		8C8E390B252508050006AF94 /* swiftUiDemoTodoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E390A252508050006AF94 /* swiftUiDemoTodoAppUITests.swift */; };
 		8C8E391C252509110006AF94 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E391B252509110006AF94 /* Todo.swift */; };
 		8C8E392F25250D7A0006AF94 /* TodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8E392E25250D7A0006AF94 /* TodoViewModel.swift */; };
+		8CBF99FD252649EA008A42C5 /* TodoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBF99FC252649EA008A42C5 /* TodoService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		8C8E390C252508050006AF94 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C8E391B252509110006AF94 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		8C8E392E25250D7A0006AF94 /* TodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewModel.swift; sourceTree = "<group>"; };
+		8CBF99FC252649EA008A42C5 /* TodoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		8C8E38EC252508020006AF94 /* swiftUiDemoTodoApp */ = {
 			isa = PBXGroup;
 			children = (
+				8CBF99FB252649C7008A42C5 /* Services */,
 				8C8E392D25250CFF0006AF94 /* ViewModels */,
 				8C8E392C25250CC70006AF94 /* Models */,
 				8C8E38ED252508020006AF94 /* swiftUiDemoTodoAppApp.swift */,
@@ -150,6 +153,14 @@
 				8C8E392E25250D7A0006AF94 /* TodoViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8CBF99FB252649C7008A42C5 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8CBF99FC252649EA008A42C5 /* TodoService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,6 +295,7 @@
 				8C8E392F25250D7A0006AF94 /* TodoViewModel.swift in Sources */,
 				8C8E38F0252508020006AF94 /* TodoListView.swift in Sources */,
 				8C8E391C252509110006AF94 /* Todo.swift in Sources */,
+				8CBF99FD252649EA008A42C5 /* TodoService.swift in Sources */,
 				8C8E38EE252508020006AF94 /* swiftUiDemoTodoAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

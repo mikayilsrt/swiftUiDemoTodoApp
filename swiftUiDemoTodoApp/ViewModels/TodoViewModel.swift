@@ -10,19 +10,26 @@ import Foundation
 
 class TodoViewModel : ObservableObject {
     
-    @Published var todos : [Todo] = [
-        Todo(title: "delectus aut autem", completed: true),
-        Todo(title: "delectus aut autem", completed: false),
-        Todo(title: "delectus aut autem", completed: false),
-        Todo(title: "delectus aut autem", completed: false)
-    ]
+    @Published var todos : [Todo] = []
+    
+    init() {
+        self.fetchAllTodos()
+    }
     
     func removeItem(todo: Todo) {
-        DispatchQueue.global().async {
+        DispatchQueue.main.async {
             for (index, item) in self.todos.enumerated() {
                 if item.id == todo.id {
                     self.todos.remove(at: index)
                 }
+            }
+        }
+    }
+    
+    private func fetchAllTodos() {
+        DispatchQueue.main.async {
+            TodoService().getAllTodos {
+                self.todos = $0
             }
         }
     }
