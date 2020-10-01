@@ -39,7 +39,7 @@ struct TodoListView: View {
                     Text("Your todo list is empty.")
                     Spacer()
                 } else {
-                    List(todoViewModel.todos) { todo in
+                    List(todoViewModel.todos.reversed()) { todo in
                         Text(todo.title)
                         Spacer()
                         Button(action: { self.todoViewModel.removeItem(todo: todo) }, label: {
